@@ -1,2 +1,26 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Normalize text files to use LF
+*.py text eol=lf
+*.qml text eol=lf
+*.txt text eol=lf
+*.md text eol=lf
+
+# Set binary files
+# Image files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg binary
+
+# Binary formats
+*.exe binary
+*.dll binary
+*.so binary
+*.pyd binary
+
+# Documentation formats
+*.pdf binary
+*.docx binary
+*.xlsx binary
+*.pptx binary
