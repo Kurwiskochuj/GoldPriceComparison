@@ -104,7 +104,7 @@ class MainBackend(QObject):
             gold_amount_local = investment_amount / adjusted_local_price
             gold_amount_thailand = investment_amount / adjusted_thailand_price_local_currency
 
-                       # Prepare results string with improved formatting
+            # Prepare results string with improved formatting
             results = f"""
 Gold Price Comparison:
 
