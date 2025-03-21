@@ -1,4 +1,37 @@
 import sys
+import pkg_resources
+
+def check_dependencies():
+    """Check if all required libraries are installed."""
+    required_libraries = {
+        'PySide6': 'pyside6',
+        'BeautifulSoup': 'beautifulsoup4',
+        'requests': 'requests'
+    }
+
+    missing_libraries = []
+    for lib, package in required_libraries.items():
+        try:
+            pkg_resources.get_distribution(package)
+        except pkg_resources.DistributionNotFound:
+            missing_libraries.append(package)
+
+    if missing_libraries:
+        print("Missing required libraries:")
+        for package in missing_libraries:
+            print(f"- {package}")
+        print("\nPlease install the missing libraries using pip:")
+        print("Run the following command in your command prompt or terminal:")
+        print(f"pip install {' '.join(missing_libraries)}")
+        sys.exit(1)
+    else:
+        print("All required libraries are installed.")
+        print("-----------------------------")
+
+# Run dependency check first
+check_dependencies()
+
+# Import remaining modules after checking dependencies
 from decimal import Decimal, getcontext
 from PySide6.QtWidgets import QApplication
 from PySide6.QtQml import QQmlApplicationEngine
@@ -159,6 +192,10 @@ Thailand: {self.format_european_number(gold_amount_thailand, 4)} ounces
 
 def main():
     """Main function to run the application."""
+    from PySide6.QtWidgets import QApplication
+    from PySide6.QtQml import QQmlApplicationEngine
+    from PySide6.QtCore import QObject, Slot, Qt
+
     app = QApplication(sys.argv)
     engine = QQmlApplicationEngine()
 
