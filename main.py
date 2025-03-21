@@ -104,13 +104,16 @@ class MainBackend(QObject):
             gold_amount_local = investment_amount / adjusted_local_price
             gold_amount_thailand = investment_amount / adjusted_thailand_price_local_currency
 
-            # Prepare results string
+                       # Prepare results string with improved formatting
             results = f"""
 Gold Price Comparison:
+
 Your Local Country: {self.format_european_number(adjusted_local_price, 2)} {local_currency_symbol}/ounce
 Thailand: {self.format_european_number(adjusted_thailand_price_local_currency, 2)} {local_currency_symbol}/ounce
+
 {better_option}
-Price difference: {self.format_european_number(price_difference, 2)} {local_currency_symbol}/ounce
+
+Price Difference: {self.format_european_number(price_difference, 2)} {local_currency_symbol}/ounce
 
 Investment: {self.format_european_number(investment_amount, 2)} {local_currency_symbol}
 Your Local Country: {self.format_european_number(gold_amount_local, 4)} ounces
